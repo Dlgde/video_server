@@ -8,6 +8,8 @@ import (
 	"encoding/json"
 	"io"
 	"io/ioutil"
+	"net/url"
+	"net/http/httputil"
 )
 
 type HomePage struct {
@@ -80,4 +82,10 @@ func apiHandler(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	}
 	request(apibody, w, r)
 	defer r.Body.Close()
+}
+
+func proxyHandler(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+	u, _:=url.Parse("http://127.0.0.1:9000/")
+	proxy := httputil.NewSingletonHostReverseProxy(u)
+	proxy.ServeHTTP(w, r)
 }

@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"github.com/julienschmidt/httprouter"
 	"log"
+	"video_server/api/session"
 )
 
 type middleWareHandler struct {

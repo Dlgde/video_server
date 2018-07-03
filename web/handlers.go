@@ -86,6 +86,6 @@ func apiHandler(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 
 func proxyHandler(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	u, _:=url.Parse("http://127.0.0.1:9000/")
-	proxy := httputil.NewSingletonHostReverseProxy(u)
+	proxy := httputil.NewSingleHostReverseProxy(u)
 	proxy.ServeHTTP(w, r)
 }

@@ -135,6 +135,7 @@ func ListVideoInfo(uname string, from, to int) ([]*defs.VideoInfo, error) {
 			return res, err
 		}
 		vi:=&defs.VideoInfo{Id:id, AuthorId:aid, Name:name, DisplayCtime: ctime}
+		res = append(res, vi)
 	}
 	defer stmtOut.Close()
 	return res, nil

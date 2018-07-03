@@ -1,7 +1,6 @@
 package main
 
 import (
-	"io"
 	"encoding/json"
 	"net/http"
 	"io/ioutil"
@@ -9,6 +8,8 @@ import (
 	"video_server/api/defs"
 	"video_server/api/session"
 	"video_server/api/dbops"
+	"log"
+	"video_server/api/utils"
 )
 
 func CreateUser(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
@@ -43,7 +44,7 @@ func Login(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 	if err:=json.Unmarshal(res, ubody); err!=nil {
 		log.Printf("%s", err)
 		//io.WriteString(w, "wrong")
-		sendErrorResponse(w, defs.ErrorReqeustBodyParseFailed)
+		sendErrorResponse(w, defs.ErrorRequestBodyParseFailed)
 		return
 	}
 	uname := p.ByName("username")

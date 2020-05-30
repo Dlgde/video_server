@@ -1,12 +1,12 @@
 package main
 
-import(
-	"log"
-	"net/http"
+import (
 	"bytes"
+	"encoding/json"
 	"io"
 	"io/ioutil"
-	"encoding/json"
+	"log"
+	"net/http"
 )
 
 var httpClient *http.Client

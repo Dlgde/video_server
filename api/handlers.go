@@ -2,13 +2,13 @@ package main
 
 import (
 	"encoding/json"
-	"net/http"
-	"io/ioutil"
 	"github.com/julienschmidt/httprouter"
+	"io/ioutil"
+	"log"
+	"net/http"
+	"video_server/api/dbops"
 	"video_server/api/defs"
 	"video_server/api/session"
-	"video_server/api/dbops"
-	"log"
 	"video_server/api/utils"
 )
 

@@ -1,9 +1,9 @@
 package main
 
 import (
-	"net/http"
 	"github.com/julienschmidt/httprouter"
 	"log"
+	"net/http"
 	"video_server/api/session"
 )
 

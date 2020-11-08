@@ -1,14 +1,14 @@
 package main
 
 import (
+	"github.com/julienschmidt/httprouter"
+	"html/template"
 	"io"
+	"io/ioutil"
+	"log"
 	"net/http"
 	"os"
 	"time"
-	"html/template"
-	"io/ioutil"
-	"github.com/julienschmidt/httprouter"
-	"log"
 )
 
 func testPageHandler(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
@@ -25,7 +25,7 @@ func streamHandler(w http.ResponseWriter, r *http.Request, p httprouter.Params) 
 		return
 	}
 	w.Header().Set("Content-Type", "video/mp4")
-	http.ServeContent(w, r, "", time.Now(), video)
+	http.ServeContent(w, r, "", time.Now(), video)//二进制流
 
 	defer video.Close()
 }

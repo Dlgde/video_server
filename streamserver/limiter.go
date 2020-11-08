@@ -23,6 +23,7 @@ func (cl *ConnLimiter) GetConn() bool {
 	}
 	cl.bucket <- 1
 	log.Printf("Successfully got connection")
+	//fmt.Println(len(cl.bucket))
 	return true
 }
 

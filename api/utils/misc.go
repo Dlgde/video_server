@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"net/http"
 	"log"
-	"avenssi"
+	"video_server/avenssi"
 )
 
 func NewUUID() (string, error) {

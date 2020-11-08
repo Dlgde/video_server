@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/julienschmidt/httprouter"
+	"log"
 	"net/http"
 )
 
@@ -31,6 +32,9 @@ func (m middleWareHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	m.r.ServeHTTP(w, r)
+	log.Printf("the lenth of bucket is: %d ",len(m.l.bucket))
+	//time.Sleep(time.Second*5)
+	//in order to verify  the limiter
 	defer m.l.ReleaseConn()
 }
 
